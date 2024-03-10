@@ -31,7 +31,7 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
       - name: Build
-        run: ./gradlew build -x test
+        run: ./gradlew build 
       - name: Test
         run: ./gradlew test 
       - name: Run Coverage
@@ -39,7 +39,8 @@ jobs:
           chmod +x gradlew
           ./gradlew build jacocoTestReport
       - name: Upload Test Results
+        rum: mkdir staging && cp target/*.jar staging
         uses: actions/upload-artifact@v2
         with:
           name: test-results
-          path: target/reports  
+          path: staging  

@@ -45,3 +45,6 @@ jobs:
         run: ./gradlew build sonar
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
+        with:
+          name: Result-Artifact
+          path: target/reports

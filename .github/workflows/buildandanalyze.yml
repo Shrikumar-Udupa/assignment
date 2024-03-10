@@ -39,7 +39,7 @@ jobs:
           chmod +x gradlew
           ./gradlew build jacocoTestReport
       - name: Upload Test Results
-        run: mkdir staging && cp target/*.jar staging
+        run: mkdir staging && cp *.jar staging
       - uses: actions/upload-artifact@v2
         with:
           name: test-results

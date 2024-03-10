@@ -38,13 +38,8 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build jacocoTestReport
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
         with:
-          name: Result-Artifact
-          path: target/result
-      - name: Download all workflow run artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: Result-Artifact
-          path: target/result
+          name: test-results
+          path: target/reports

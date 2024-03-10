@@ -40,7 +40,7 @@ jobs:
           ./gradlew build jacocoTestReport
       - name: Download all workflow run artifacts
         run: mkdir report && cp reports/jacoco/test/* report 
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
           name: Package
           path: report

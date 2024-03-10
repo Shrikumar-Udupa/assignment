@@ -39,6 +39,8 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build jacocoTestReport
+          pwd
+          ls -lrth
       - name: Download all workflow run artifacts
         run: mkdir report && cp /home/runner/work/assignment/assignment/report/* report 
       - uses: actions/upload-artifact@v2

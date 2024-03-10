@@ -38,9 +38,8 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew build jacocoTestReport
-      - name: Upload Test Results
-        run: mkdir staging && cp *.jar staging
-      - uses: actions/upload-artifact@v2
+      - name: Download all workflow run artifacts
+        uses: actions/upload-artifact@v2
         with:
-          name: test-results
-          path: staging  
+          name: Package
+          path: build/libs  

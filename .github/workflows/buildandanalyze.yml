@@ -43,8 +43,7 @@ jobs:
           ls -lrth /home/runner/work/assignment/assignment/build/reports/tests
           ls -lrth /home/runner/work/assignment/assignment/build/reports/jacoco
       - name: Download all workflow run artifacts
-        run: mkdir report && cp -R build/reports/* report 
-      - uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: Test and coverage report
-          path: report
+          path: build/reports/

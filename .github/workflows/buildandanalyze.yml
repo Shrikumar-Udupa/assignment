@@ -33,16 +33,14 @@ jobs:
       - name: Build
         run: ./gradlew build 
       - name: Test
-        run: |
-          ./gradlew test
-          pwd
+        run: ./gradlew test
+          
       - name: Run Coverage
         run: |
           chmod +x gradlew
           ./gradlew build jacocoTestReport
-          pwd
       - name: Download all workflow run artifacts
-        run: mkdir report && cp reports/jacoco/test/* report 
+        run: mkdir report && cp /home/runner/work/assignment/assignment/* report 
       - uses: actions/upload-artifact@v2
         with:
           name: Package
